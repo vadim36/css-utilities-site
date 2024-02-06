@@ -14,19 +14,23 @@ helpers.forEach((helper:Helper):void => {
   ;(document.getElementById('mainList') as HTMLUListElement)
   .append($helperItem)
 
-  return options.forEach((option: string):void => {
+  return options.forEach((option: string):HTMLElement => {
+    const $exampleListElement = 
+      document.createElement('li') as HTMLElement
     const $exampleElement = 
       document.createElement(exampleElement) as HTMLElement
-    
+
     $exampleElement.className = `${shortcut}-${option}`
-    $exampleElement.style.width = '100px';
-    $exampleElement.style.height = '100px';
-    $exampleElement.style.display = 'block';
-    $exampleElement.style.textAlign = 'Center';
+    $exampleElement.style.width = '100px'
+    $exampleElement.style.height = '100px'
+    $exampleElement.style.display = 'block'
+    $exampleElement.style.textAlign = 'Center'
 
     $exampleElement.innerText = $exampleElement.className
 
-    return ($helperItem.querySelector('ul') as HTMLUListElement)
-      .append($exampleElement)
+    ;($helperItem.querySelector('ul') as HTMLUListElement)
+      .appendChild($exampleListElement)
+
+    return $exampleListElement.appendChild($exampleElement)
   })
 })
