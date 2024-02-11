@@ -1,37 +1,33 @@
-const backgroundColorHelper:Helper = {
-  shortcut: 'bg',
-  body: 'Helper for background',
-  options: [
-    'primary','secondary','success','danger',
-    'warning','info','light','dark'
-  ],
-  exampleElement: 'div'
-}
+import Helper from "./Helper"
+import {ClassTitles, helperBodies, options, HelperElements} from './utils'
 
-const backgroundGradientsHelper: Helper = {
-  shortcut: 'bg-gradient',
-  extraShortcut: 'bg',
-  body: 'Helper for background gradient',
-  options: [
-    'primary','secondary','success','danger',
-    'warning','info','light','dark'
-  ],
-  exampleElement: 'div'
-}
+const backgroundColorHelper:Helper = new Helper({
+  title: ClassTitles.bg,
+  body: helperBodies.bg,
+  options: options.states,
+  exampleElement: HelperElements.div
+})
 
-const backgroundOpacityHelper: Helper = {
-  shortcut: 'bg-opacity',
-  extraShortcut: 'bg',
-  body: 'Helper for background opacity',
-  options: [
-    '0','25','50','75', '100'
-  ],
-  exampleElement: 'div'
-}
+const backgroundGradientHelper:Helper = new Helper({
+  title: ClassTitles.bgGradient,
+  extraClass: ClassTitles.bg,
+  body: helperBodies.bgGradient,
+  options: options.states,
+  exampleElement: HelperElements.div
+})
+
+const backgroundOpacityHelper:Helper = new Helper({
+  title: ClassTitles.bgOpacity,
+  extraClass: ClassTitles.bgOpacity,
+  body: helperBodies.bgOpacity,
+  options: options.abstractPoints1,
+  exampleElement: HelperElements.div
+})
+
 
 const helpers: Helper[] = [
   backgroundColorHelper,
-  backgroundGradientsHelper,
+  backgroundGradientHelper,
   backgroundOpacityHelper
 ]
 

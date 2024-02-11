@@ -1,7 +1,5 @@
-interface Helper {
-  shortcut:string,
-  extraShortcut?:string,
-  body:string,
-  options:string[],
-  exampleElement: string
-}
+type HelperBody = string
+type HelperBodies = { [key: string]:HelperBody }
+
+type ClassOption = string[]
+type ClassOptions = { [key: string]:ClassOption }
