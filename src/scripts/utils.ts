@@ -1,13 +1,18 @@
 export enum ClassTitles {
   bg = 'bg',
   bgGradient = 'bg-gradient',
-  bgOpacity = 'bg-opacity'
+  bgOpacity = 'bg-opacity',
+  bordered = 'bordered',
+  border = 'border'
 }
 
 export const helperBodies: HelperBodies = {
   bg: 'Helper for background',
   bgGradient: 'Helper for background gradient',
-  bgOpacity: 'Helper for background opacity'
+  bgOpacity: 'Helper for background opacity',
+  bordered: 'Helper for primary border',
+  colorBorder: 'Helper for colors of border',
+  opacityBorder: 'Helper for different opacity of borders'
 }
 
 export const options: ClassOptions = {
