@@ -1,24 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
+@use '../abstract/root' as *;
+@use '../abstract/base';
 
-*:not(head > *) {
-  all: unset;
-  box-sizing: border-box;
-}
-
-html,
-body {
-  height: 100%;
-}
+$iconSize: calc($xlFontSize * 4);
 
 body {
-  font-family: 'Roboto Mono', sans-serif;
+  font-family: $accentFontFamily;
 }
-
-$iconSize: 12.5rem;
-$headerFontSize: calc($iconSize * .33);
-$buttonFontSize: calc($headerFontSize * .5);
-$primaryColor: hsl(0, 100%, 0%);
-$secondaryColor: hsl(0, 100%, 100%);
 
 .main {
   display: grid;
@@ -36,7 +23,7 @@ $secondaryColor: hsl(0, 100%, 100%);
 .main__icon {
   width: $iconSize;
   aspect-ratio: 1;
-  user-select: none;
+  pointer-events: none;
 }
 
 .main__link {
@@ -48,7 +35,7 @@ $secondaryColor: hsl(0, 100%, 100%);
   color: $primaryColor;
 
   cursor: pointer;
-  font-size: $buttonFontSize;
+  font-size: $xlFontSize;
   border: 2px solid $primaryColor;
   border-radius: .25rem;
   padding: .5rem;
@@ -64,7 +51,7 @@ $secondaryColor: hsl(0, 100%, 100%);
 .main__header {
   font-weight: 700;
   text-transform: capitalize;
-  font-size: $headerFontSize;
-  padding: calc($headerFontSize * .25);
+  font-size: calc($xlFontSize * 1.5);
+  padding: calc($xlFontSize * .25);
   color: $primaryColor;
 }

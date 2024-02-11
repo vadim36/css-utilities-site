@@ -1,27 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
-
-$xlFontSize: 2.85rem;
-$lFontSize: 2.25rem;
-$xmFontSize: 1.95rem;
-$mFontSize: 1.45rem;
-
-*:not(head > *) {
-  all: unset;
-}
-
-html,
-body {
-  height: 100%;
-  display: block;
-}
-
-body {
-  font-family: 'Roboto Mono', sans-serif;
-}
+@use '../abstract/root' as *;
+@use '../abstract/base';
+@use '../abstract/mixins' as *;
 
 #app {
   height: 100%;
-  display: block;
   display: flex;
 }
 
@@ -32,24 +14,20 @@ body {
 }
 
 .main__heading {
-  font-weight: 700;
-  font-size: $xlFontSize;
-  text-align: center;
+  @include header(1);
 }
 
 .aside {
   min-width: 20vw;
   height: 100%;
-  border: 1px solid #000;
+  border: 2px solid $primaryColor;
 
   display: flex;
   flex-direction: column;
 }
 
 .aside__heading {
-  font-weight: 700;
-  font-size: $lFontSize;
-  text-align: center;
+  @include header(2);
 }
 
 .mainList__item {
@@ -60,9 +38,9 @@ body {
 }
 
 .item__heading {
+  @include header(3);
+  text-align: left;
   text-transform: uppercase;
-  font-weight: 700;
-  font-size: $xmFontSize;
 }
 
 .item__subheading {

@@ -1,0 +1,20 @@
+@use 'root' as *;
+
+@mixin header($type: 1) {
+  font-family: $accentFontFamily;
+
+  @if ($type == 1) {
+    font-size: $xlFontSize;
+  }
+
+  @if ($type == 2) {
+    font-size: $lFontSize;
+  }
+
+  @if ($type == 3) {
+    font-size: $xmFontSize;
+  }
+
+  text-align: center;
+  color: $primaryColor;
+}

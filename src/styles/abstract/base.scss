@@ -1,0 +1,15 @@
+@use 'root' as *;
+
+*:not(head > *) {
+  all: unset;
+}
+
+html,
+body {
+  height: 100%;
+  display: block;
+}
+
+body {
+  font-family: $primaryFontFamily;
+}

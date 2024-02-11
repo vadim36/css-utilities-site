@@ -1,1 +1,1 @@
-import 'css-utilities/dist/style.css'
+import 'css-utilities'
