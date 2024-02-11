@@ -9,8 +9,8 @@ const backgroundColorHelper:Helper = new Helper({
 })
 
 const backgroundGradientHelper:Helper = new Helper({
-  title: ClassTitles.bgGradient,
-  extraClass: ClassTitles.bg,
+  title: ClassTitles.bg,
+  extraTitle: ClassTitles.bgGradient,
   body: helperBodies.bgGradient,
   options: options.states,
   exampleElement: HelperElements.div
@@ -18,11 +18,21 @@ const backgroundGradientHelper:Helper = new Helper({
 
 const backgroundOpacityHelper:Helper = new Helper({
   title: ClassTitles.bgOpacity,
-  extraClass: ClassTitles.bgOpacity,
+  extraTitle: ClassTitles.bg,
+  extraStyle: 'bg-info',
   body: helperBodies.bgOpacity,
   options: options.abstractPoints1,
   exampleElement: HelperElements.div
 })
+
+//const borderHelper:Helper = new Helper({
+//  title: ClassTitles.bgOpacity,
+//  extraTitle: ClassTitles.bg,
+//  extraStyle: 'bg-info',
+//  body: helperBodies.bgOpacity,
+//  options: options.abstractPoints1,
+//  exampleElement: HelperElements.div
+//})
 
 
 const helpers: Helper[] = [

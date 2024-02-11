@@ -2,7 +2,8 @@ import {ClassTitles, HelperElements} from './utils'
 
 interface HelperOptions {
   title: ClassTitles,
-  extraClass?: ClassTitles,
+  extraTitle?: ClassTitles,
+  extraStyle?: string,
   body: HelperBody,
   options: ClassOption,
   exampleElement: HelperElements
@@ -16,36 +17,56 @@ export default class Helper {
   }
 
   public renderHelper():void {
-    const $helperItem = document.createElement('li') as HTMLLIElement
-    $helperItem.className = 'helperList__item'
+  const $helperItem = document.createElement('li') as HTMLLIElement
+  
+  const {
+    title, body, options, 
+    exampleElement, extraTitle, extraStyle
+  } = this._helperOptions
+  
+  $helperItem.className = `helperList__item`
+  $helperItem.id = `helper-${title}`
 
-    $helperItem.innerHTML = `
-      <h3 class="item__heading">${this._helperOptions.title}</h3>
-      <strong class="item__subheading">${this._helperOptions.body}</strong>
-      <ul class="item__list"></ul>
-    `
+  $helperItem.innerHTML = `
+    <h3 class="item__heading">${title}</h3>
+    <strong class="item__subheading">${body}</strong>
+    <ul class="item__list"></ul>
+  `
+  
+  ;(document.getElementById('helperList') as HTMLUListElement)
+  .append($helperItem)
 
-   ;(document.getElementById('helperList') as HTMLUListElement)
-   .append($helperItem)
+  const $helperLink = document.createElement('a') as HTMLAnchorElement
+  $helperLink.href = `#${$helperItem.id}`
+  $helperLink.innerHTML = title
 
-   return this._helperOptions.options.forEach((option: string):HTMLElement => {
+  ;(document.getElementById('helperNav') as HTMLUListElement)
+    .appendChild($helperLink)
+
+   return options.forEach((option: string):HTMLElement => {
      const $exampleListElement = 
        document.createElement('li') as HTMLElement
      const $exampleElement = 
-       document.createElement(this._helperOptions.exampleElement) as HTMLElement
+       document.createElement(exampleElement) as HTMLElement
 
-     $exampleElement.className = `${this._helperOptions.title}-${option}`
+     $exampleElement.className = `${title}-${option}`
+
      $exampleElement.style.width = '100px'
      $exampleElement.style.height = '100px'
      $exampleElement.style.display = 'block'
      $exampleElement.style.textAlign = 'Center'
 
-    if (this._helperOptions?.extraClass) {
-      $exampleElement.className = 
-        `${this._helperOptions.extraClass}.${this._helperOptions.title}-${option}`
-    }
-
      $exampleElement.innerText = $exampleElement.className
+
+     if (extraTitle) {
+      $exampleElement.className = 
+        `${extraTitle} ${title}-${option}`
+        $exampleElement.innerText = `${extraTitle}.${title}-${option}`
+     }
+
+     if (extraStyle) {
+      $exampleElement.classList.add(extraStyle)
+     }
 
      ;($helperItem.querySelector('ul') as HTMLUListElement)
        .appendChild($exampleListElement)
@@ -63,14 +84,14 @@ export default class Helper {
     this._helperOptions.title = value
   }
 
-  public get extraClass(): ClassTitles | void {
-    if (this._helperOptions?.extraClass) {
-      return this._helperOptions.extraClass
+  public get extraTitle(): ClassTitles | void {
+    if (this._helperOptions?.extraTitle) {
+      return this._helperOptions.extraTitle
     }
   }
 
-  public set extraClass(value: ClassTitles) {
-    this._helperOptions.extraClass = value
+  public set extraTitle(value: ClassTitles) {
+    this._helperOptions.extraTitle = value
   }
 
   public get body(): HelperBody {
