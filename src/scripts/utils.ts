@@ -3,7 +3,8 @@ export enum ClassTitles {
   bgGradient = 'bg-gradient',
   bgOpacity = 'bg-opacity',
   bordered = 'bordered',
-  border = 'border'
+  border = 'border',
+  borderRadius = 'br'
 }
 
 export const helperBodies: HelperBodies = {
@@ -12,7 +13,9 @@ export const helperBodies: HelperBodies = {
   bgOpacity: 'Helper for background opacity',
   bordered: 'Helper for primary border',
   colorBorder: 'Helper for colors of border',
-  opacityBorder: 'Helper for different opacity of borders'
+  opacityBorder: 'Helper for different opacity of borders',
+  sizeBorder: 'Helper for different widths of borders',
+  borderRadius: 'Helper for border radius',
 }
 
 export const options: ClassOptions = {
@@ -20,8 +23,11 @@ export const options: ClassOptions = {
     'primary','secondary','success','danger',
     'warning','info','light','dark'
   ],
-  abstractPoints1: [
+  abstractPointsFractal: [
     '0', '25', '50', '75', '1'
+  ],
+  abstractPointsInteger: [
+    '1', '2', '3', '4', '5'
   ]
 }
 

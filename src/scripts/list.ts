@@ -21,7 +21,7 @@ const backgroundOpacityHelper:Helper = new Helper({
   extraTitle: ClassTitles.bg,
   extraStyle: 'bg-info',
   body: helperBodies.bgOpacity,
-  options: options.abstractPoints1,
+  options: options.abstractPointsFractal,
   exampleElement: HelperElements.div
 })
 
@@ -42,7 +42,23 @@ const coloredBorderHelper:Helper = new Helper({
 const opacityBorderHelper:Helper = new Helper({
   title: ClassTitles.border,
   body: helperBodies.opacityBorder,
-  options: options.abstractPoints1,
+  extraStyle: 'border-dark',
+  options: options.abstractPointsFractal,
+  exampleElement: HelperElements.div
+})
+
+const sizeBorderHelper: Helper = new Helper({
+  title: ClassTitles.border,
+  body: helperBodies.sizeBorder,
+  options: options.abstractPointsInteger,
+  exampleElement: HelperElements.div
+})
+
+const borderRadiusHelper: Helper = new Helper({
+  title: ClassTitles.borderRadius,
+  body: helperBodies.borderRadius,
+  extraStyle: 'border-5',
+  options: options.abstractPointsFractal,
   exampleElement: HelperElements.div
 })
 
@@ -53,7 +69,9 @@ const helpers: Helper[] = [
   backgroundOpacityHelper,
   borderHelper,
   coloredBorderHelper,
-  opacityBorderHelper
+  opacityBorderHelper,
+  sizeBorderHelper,
+  borderRadiusHelper
 ]
 
 export default helpers

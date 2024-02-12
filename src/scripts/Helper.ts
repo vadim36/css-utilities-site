@@ -49,7 +49,11 @@ export default class Helper {
      const $exampleElement = 
        document.createElement(exampleElement) as HTMLElement
 
-     $exampleElement.className = `${title}-${option}`
+    if (option === '') {
+      $exampleElement.className = title
+    } else {
+      $exampleElement.className = `${title}-${option}`
+    }
 
      $exampleElement.style.width = '100px'
      $exampleElement.style.height = '100px'
