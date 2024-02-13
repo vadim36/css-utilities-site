@@ -1,9 +1,10 @@
-import {ClassTitles, HelperElements} from './utils'
+import {Classes, HelperElements} from './utils'
 
 interface HelperOptions {
-  title: ClassTitles,
-  extraTitle?: ClassTitles,
+  head: Classes,
+  extraClass?: Classes,
   extraStyle?: string,
+  title: HelperTitle,
   body: HelperBody,
   options: ClassOption,
   exampleElement: HelperElements
@@ -20,8 +21,8 @@ export default class Helper {
   const $helperItem = document.createElement('li') as HTMLLIElement
   
   const {
-    title, body, options, 
-    exampleElement, extraTitle, extraStyle
+    head, title, body, options, 
+    exampleElement, extraClass, extraStyle
   } = this._helperOptions
   
   $helperItem.className = `helperList__item`
@@ -38,6 +39,7 @@ export default class Helper {
 
   const $helperLink = document.createElement('a') as HTMLAnchorElement
   $helperLink.href = `#${$helperItem.id}`
+  $helperLink.className = 'nav__helper-link'
   $helperLink.innerHTML = title
 
   ;(document.getElementById('helperNav') as HTMLUListElement)
@@ -50,9 +52,9 @@ export default class Helper {
        document.createElement(exampleElement) as HTMLElement
 
     if (option === '') {
-      $exampleElement.className = title
+      $exampleElement.className = head
     } else {
-      $exampleElement.className = `${title}-${option}`
+      $exampleElement.className = `${head}-${option}`
     }
 
      $exampleElement.style.width = '100px'
@@ -62,10 +64,10 @@ export default class Helper {
 
      $exampleElement.innerText = $exampleElement.className
 
-     if (extraTitle) {
+     if (extraClass) {
       $exampleElement.className = 
-        `${extraTitle} ${title}-${option}`
-        $exampleElement.innerText = `${extraTitle}.${title}-${option}`
+        `${extraClass} ${head}-${option}`
+        $exampleElement.innerText = `${extraClass}.${head}-${option}`
      }
 
      if (extraStyle) {
@@ -80,22 +82,22 @@ export default class Helper {
   }
 
   //?Getters and setters for all helper options
-  public get title(): ClassTitles {
-    return this._helperOptions.title
+  public get head(): Classes {
+    return this._helperOptions.head
   }
 
-  public set title(value: ClassTitles) {
-    this._helperOptions.title = value
+  public set head(value: Classes) {
+    this._helperOptions.head = value
   }
 
-  public get extraTitle(): ClassTitles | void {
-    if (this._helperOptions?.extraTitle) {
-      return this._helperOptions.extraTitle
+  public get extraClass(): Classes | void {
+    if (this._helperOptions?.extraClass) {
+      return this._helperOptions.extraClass
     }
   }
 
-  public set extraTitle(value: ClassTitles) {
-    this._helperOptions.extraTitle = value
+  public set extraClass(value: Classes) {
+    this._helperOptions.extraClass = value
   }
 
   public get body(): HelperBody {

@@ -1,24 +1,27 @@
 import Helper from "./Helper"
-import {ClassTitles, helperBodies, options, HelperElements} from './utils'
+import {Classes, helperBodies, options, HelperElements, helperTitles} from './utils'
 
 const backgroundColorHelper:Helper = new Helper({
-  title: ClassTitles.bg,
+  head: Classes.background,
+  title: helperTitles.bg,
   body: helperBodies.bg,
   options: options.states,
   exampleElement: HelperElements.div
 })
 
 const backgroundGradientHelper:Helper = new Helper({
-  title: ClassTitles.bg,
-  extraTitle: ClassTitles.bgGradient,
+  head: Classes.background,
+  title: helperTitles.bgGradient,
+  extraClass: Classes.bgGradient,
   body: helperBodies.bgGradient,
   options: options.states,
   exampleElement: HelperElements.div
 })
 
 const backgroundOpacityHelper:Helper = new Helper({
-  title: ClassTitles.bgOpacity,
-  extraTitle: ClassTitles.bg,
+  head: Classes.bgOpacity,
+  extraClass: Classes.background,
+  title: helperTitles.bgOpacity,
   extraStyle: 'bg-info',
   body: helperBodies.bgOpacity,
   options: options.abstractPointsFractal,
@@ -26,21 +29,24 @@ const backgroundOpacityHelper:Helper = new Helper({
 })
 
 const borderHelper:Helper = new Helper({
-  title: ClassTitles.bordered,
+  head: Classes.bordered,
+  title: helperTitles.bordered,
   body: helperBodies.bordered,
   options: [''],
   exampleElement: HelperElements.div
 })
 
 const coloredBorderHelper:Helper = new Helper({
-  title: ClassTitles.border,
+  head: Classes.border,
+  title: helperTitles.colorBorder,
   body: helperBodies.colorBorder,
   options: options.states,
   exampleElement: HelperElements.div
 })
 
 const opacityBorderHelper:Helper = new Helper({
-  title: ClassTitles.border,
+  head: Classes.border,
+  title: helperBodies.opacityBorder,
   body: helperBodies.opacityBorder,
   extraStyle: 'border-dark',
   options: options.abstractPointsFractal,
@@ -48,14 +54,16 @@ const opacityBorderHelper:Helper = new Helper({
 })
 
 const sizeBorderHelper: Helper = new Helper({
-  title: ClassTitles.border,
+  head: Classes.border,
+  title: helperTitles.sizeBorder,
   body: helperBodies.sizeBorder,
   options: options.abstractPointsInteger,
   exampleElement: HelperElements.div
 })
 
 const borderRadiusHelper: Helper = new Helper({
-  title: ClassTitles.borderRadius,
+  head: Classes.borderRadius,
+  title: helperTitles.borderRadius,
   body: helperBodies.borderRadius,
   extraStyle: 'border-5',
   options: options.abstractPointsFractal,

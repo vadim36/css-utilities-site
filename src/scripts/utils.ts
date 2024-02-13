@@ -1,5 +1,5 @@
-export enum ClassTitles {
-  bg = 'bg',
+export enum Classes {
+  background = 'bg',
   bgGradient = 'bg-gradient',
   bgOpacity = 'bg-opacity',
   bordered = 'bordered',
@@ -17,6 +17,17 @@ export const helperBodies: HelperBodies = {
   sizeBorder: 'Helper for different widths of borders',
   borderRadius: 'Helper for border radius',
 }
+
+export const helperTitles: HelperTitles = {
+  bg: 'Background',
+  bgGradient: 'Background Gradient',
+  bgOpacity: 'Background Opacity',
+  bordered: 'Bordered',
+  colorBorder: 'Colored Borders',
+  opacityBorder: 'Borders with opacity',
+  sizeBorder: 'Borders with sizes',
+  borderRadius: 'Border Radiuses'
+} 
 
 export const options: ClassOptions = {
   states: [
